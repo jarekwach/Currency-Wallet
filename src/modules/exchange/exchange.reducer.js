@@ -1,17 +1,17 @@
-import types from './localStorage.types';
+import types from './exchange.types';
 
 const initState = {
-	wallet: [],
+	rates: [],
 };
 
 const reducer = (state = initState, action) => {
 	switch (action.type) {
-		case types.SAVE_DATA:
-			const { data } = action.payload;
+		case types.SAVE_RATES:
+			const { rates } = action.payload;
 
 			return {
 				...state,
-				wallet: data,
+				rates: rates,
 			};
 
 		default:

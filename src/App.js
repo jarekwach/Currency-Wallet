@@ -3,7 +3,8 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-import reducer from './modules/localStorage/localStorage.reducer';
+// import reducer from './modules/localStorage/localStorage.reducer';
+import reducer from './modules/exchange/exchange.reducer';
 import Wallet from './components/Wallet';
 import WalletForm from './components/WalletForm';
 
