@@ -1,5 +1,5 @@
 class ExchangeAPI {
-	// apiKey = process.env.REACT_APP_API_KEY;
+	apiKey = process.env.REACT_APP_API_KEY;
 	apiUrl = 'http://api.exchangeratesapi.io/v1';
 
 	getRates() {

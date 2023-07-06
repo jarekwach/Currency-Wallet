@@ -7,7 +7,7 @@ const initState = {
 const reducer = (state = initState, action) => {
 	switch (action.type) {
 		case types.SAVE_RATES:
-			const { rates } = action.payload;
+			const { rates } = action.payload.data;
 
 			return {
 				...state,

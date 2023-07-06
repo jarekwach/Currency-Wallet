@@ -1,7 +1,11 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { getRates } from '../modules/exchange/exchange.actions';
 
 const Wallet = () => {
-	return <h1>Currency Wallet</h1>;
+	const dispatch = useDispatch()
+
+	return <button onClick={() => dispatch(getRates())}>getRatesAction</button>;
 };
 
 export default Wallet;

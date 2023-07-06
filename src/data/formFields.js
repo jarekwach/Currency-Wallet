@@ -1,3 +1,6 @@
+import currencies from './currencies';
+const currenciesArr = Object.keys(currencies);
+
 const formFields = [
 	{
 		name: 'currency',
@@ -5,7 +8,7 @@ const formFields = [
 		required: true,
 		type: 'select',
 		placeholder: 'Currency',
-		options: ['1', '2', '3'],
+		options: currenciesArr,
 	},
 	{
 		name: 'amount',
