@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getRates } from '../modules/exchange/exchange.actions';
+import { getHistoricalRate, getRate } from '../modules/exchange/exchange.actions';
 
 import Table from './Table/Table';
 import tableColumns from '../data/tableColumns';
@@ -10,9 +10,11 @@ const Wallet = () => {
 	const { rates } = useSelector((state) => state.exchange);
 	const dispatch = useDispatch();
 
-	const getCurrentRate = (currency) => {
-		return rates[currency].toFixed(2);
-	};
+	// useEffect(() => {
+	// 	if (wallet.length > 0) {
+	// 		wallet.map((item) => dispatch(getRate(item.currency)));
+	// 	}
+	// }, [wallet]);
 
 	const getCurrentValue = (amount, currentRate) => {
 		return (amount * currentRate).toFixed(2);
@@ -23,10 +25,10 @@ const Wallet = () => {
 	};
 
 	const prepareWalletData = () =>
-		wallet.map((item) => {
+		wallet.map((item, i) => {
 			const { currency, amount, purchaseDate, price } = item;
 
-			const currentRate = getCurrentRate(currency);
+			const currentRate = rates[i].PLN;
 			const currentValue = getCurrentValue(amount, currentRate);
 			const profit = getProfit(amount, price, currentValue);
 
@@ -39,7 +41,10 @@ const Wallet = () => {
 				columns={tableColumns}
 				data={prepareWalletData()}
 			/>
-			<button onClick={() => dispatch(getRates())}>getRatesAction</button>
+			<button onClick={() => dispatch(getRate('EUR'))}>getRateAction 'EUR'</button>
+			<button onClick={() => dispatch(getHistoricalRate('2023-05-05', 'EUR'))}>
+				getHistoricalRate
+			</button>
 		</>
 	);
 };
