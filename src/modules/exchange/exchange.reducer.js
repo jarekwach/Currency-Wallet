@@ -1,7 +1,10 @@
 import types from './exchange.types';
 
+// przykładowa odpowiedz z API
+import exampleRates from '../../data/exampleRatesFromAPI';
+
 const initState = {
-	rates: [],
+	rates: exampleRates,
 };
 
 const reducer = (state = initState, action) => {

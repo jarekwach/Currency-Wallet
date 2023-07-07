@@ -8,7 +8,7 @@ class ExchangeAPI {
 			.then((resp) => resp.json());
 	}
 
-	getHistoricalRates(date, currency) {
+	getHistoricalRate(date, currency) {
 		return fetch(
 			`${this.apiUrl}/${date}?access_key=${this.apiKey}&symbols=${currency}`
 		)

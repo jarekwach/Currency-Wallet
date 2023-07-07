@@ -7,13 +7,28 @@ import tableColumns from '../data/tableColumns';
 
 const Wallet = () => {
 	const { wallet } = useSelector((state) => state.localStorage);
+	const { rates } = useSelector((state) => state.exchange);
 	const dispatch = useDispatch();
+
+	const getCurrentRate = (currency) => {
+		return rates[currency].toFixed(2);
+	};
+
+	const getCurrentValue = (amount, currentRate) => {
+		return (amount * currentRate).toFixed(2);
+	};
+
+	const getProfit = (amount, price, currentValue) => {
+		return amount * price - currentValue;
+	};
 
 	const prepareWalletData = () =>
 		wallet.map((item) => {
-			const currentRate = 'currentRate';
-			const currentValue = 'currentValue';
-			const profit = 'profit';
+			const { currency, amount, purchaseDate, price } = item;
+
+			const currentRate = getCurrentRate(currency);
+			const currentValue = getCurrentValue(amount, currentRate);
+			const profit = getProfit(amount, price, currentValue);
 
 			return { ...item, currentRate, currentValue, profit };
 		});
