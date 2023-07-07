@@ -9,6 +9,7 @@ import {
 	loadFromLocalStorage,
 	saveToLocalStorage,
 } from '../modules/localStorage/localStorage.actions';
+import ExchangeAPI from '../modules/exchange/exchange.api';
 
 const WalletForm = () => {
 	const [formData, setFormData] = useState(initialFormData);
@@ -21,7 +22,20 @@ const WalletForm = () => {
 
 	useEffect(() => {
 		dispatch(loadFromLocalStorage('wallet'));
-	}, []);
+		getHistoricalRateByDate();
+	}, [formData.currency, formData.purchaseDate]);
+
+	const getHistoricalRateByDate = () => {
+		const { currency, purchaseDate } = formData;
+		const api = new ExchangeAPI();
+
+		if (currency && purchaseDate !== '') {
+			console.log('pobierz dane z API i wprowadz do price');
+			api.getHistoricalRate(purchaseDate, currency).then((resp) => {
+				setFormData({ ...formData, price: resp.rates.PLN.toFixed(2) });
+			});
+		}
+	};
 
 	const handleSubmit = (e) => {
 		e.preventDefault();

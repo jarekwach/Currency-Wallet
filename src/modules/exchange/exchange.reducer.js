@@ -2,7 +2,7 @@ import types from './exchange.types';
 
 const initState = {
 	rates: [{ PLN: 4.41 }, { PLN: 3.87 }],
-	historicalRate: {},
+	historicalRate: { PLN: '' },
 };
 
 const reducer = (state = initState, action) => {
