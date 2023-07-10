@@ -1,6 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getHistoricalRate, getRate } from '../modules/exchange/exchange.actions';
+import {
+	getHistoricalRate,
+	getRate,
+} from '../modules/exchange/exchange.actions';
+import { loadFromLocalStorage } from '../modules/localStorage/localStorage.actions';
 
 import Table from './Table/Table';
 import tableColumns from '../data/tableColumns';
@@ -10,10 +14,15 @@ const Wallet = () => {
 	const { rates } = useSelector((state) => state.exchange);
 	const dispatch = useDispatch();
 
+	useEffect(() => {
+		dispatch(loadFromLocalStorage('wallet'));
+	}, []);
+
+	// do pobierania aktualnych stawek, zapisuje w state rates = [{}, {}]
 	// useEffect(() => {
-	// 	if (wallet.length > 0) {
-	// 		wallet.map((item) => dispatch(getRate(item.currency)));
-	// 	}
+	// 		if (wallet.length > 0) {
+	// 			wallet.map((item) => dispatch(getRate(item.currency)));
+	// 		}
 	// }, [wallet]);
 
 	const getCurrentValue = (amount, currentRate) => {
@@ -21,7 +30,7 @@ const Wallet = () => {
 	};
 
 	const getProfit = (amount, price, currentValue) => {
-		return amount * price - currentValue;
+		return (amount * price - currentValue).toFixed(2);
 	};
 
 	const prepareWalletData = () =>
@@ -41,7 +50,9 @@ const Wallet = () => {
 				columns={tableColumns}
 				data={prepareWalletData()}
 			/>
-			<button onClick={() => dispatch(getRate('EUR'))}>getRateAction 'EUR'</button>
+			<button onClick={() => dispatch(getRate('EUR'))}>
+				getRateAction 'EUR'
+			</button>
 			<button onClick={() => dispatch(getHistoricalRate('2023-05-05', 'EUR'))}>
 				getHistoricalRate
 			</button>
