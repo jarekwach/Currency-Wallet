@@ -50,12 +50,12 @@ const Wallet = () => {
 				columns={tableColumns}
 				data={prepareWalletData()}
 			/>
-			<button onClick={() => dispatch(getRate('EUR'))}>
+			{/* <button onClick={() => dispatch(getRate('EUR'))}>
 				getRateAction 'EUR'
 			</button>
 			<button onClick={() => dispatch(getHistoricalRate('2023-05-05', 'EUR'))}>
 				getHistoricalRate
-			</button>
+			</button> */}
 		</>
 	);
 };

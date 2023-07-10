@@ -12,6 +12,7 @@ const FormField = ({ fieldData, value, onChange, fieldError }) => {
 			<Label name={name} />
 			{type === 'select' ? (
 				<select
+					style={defaultStyleSelect}
 					name={name}
 					value={value}
 					onChange={(e) => onChange(e.target.value)}>
@@ -36,6 +37,16 @@ const FormField = ({ fieldData, value, onChange, fieldError }) => {
 			<FormError>{fieldError}</FormError>
 		</StyledFormField>
 	);
+};
+
+const defaultStyleSelect = {
+	width: '100%',
+	padding: '0.8rem 1.2rem',
+	fontSize: '1.4rem',
+	borderRadius: '10px',
+	border: '0.5px solid #333',
+	outline: 'none',
+	textAlign: 'center',
 };
 
 export default FormField;

@@ -1,17 +1,13 @@
 import styled from 'styled-components';
 
 const StyledInput = styled.input`
-	/* width: 100%;
-	padding: 1rem 1.5rem;
+	width: 100%;
+	padding: 0.8rem 1.2rem;
 	font-size: 1.4rem;
-	border: none;
-	border-radius: 45px;
+	border-radius: 10px;
+	border: 0.5px solid #333;
 	outline: none;
 	text-align: center;
-
-	color: var(--color-text);
-	background-color: var(--color-button);
-	box-shadow: var(--shadow-input); */
 `;
 
 export { StyledInput };

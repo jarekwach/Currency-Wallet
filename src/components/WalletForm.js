@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Form from './Form';
+import Button from './Button';
 import FormField from './FormField/FormField';
 import formFields from '../data/formFields';
 import formValidation from '../formValidation';
@@ -69,7 +70,7 @@ const WalletForm = () => {
 	return (
 		<Form onSubmit={handleSubmit}>
 			{renderFieldList}
-			<button type='submit'>save</button>
+			<Button type='submit'>save</Button>
 		</Form>
 	);
 };
