@@ -5,7 +5,7 @@ import Input from '../Input';
 import FormError from '../FormError';
 
 const FormField = ({ fieldData, value, onChange, fieldError }) => {
-	const { name, placeholder, type, options } = fieldData;
+	const { name, placeholder, type, options, maxDate } = fieldData;
 
 	return (
 		<StyledFormField>
@@ -32,6 +32,7 @@ const FormField = ({ fieldData, value, onChange, fieldError }) => {
 					onChange={(e) => onChange(e.target.value)}
 					placeholder={placeholder}
 					value={value}
+					maxDate={maxDate}
 				/>
 			)}
 			<FormError>{fieldError}</FormError>

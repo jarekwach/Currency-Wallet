@@ -2,7 +2,7 @@ import types from './exchange.types';
 import ExchangeAPI from './exchange.api';
 const api = new ExchangeAPI();
 
-export const saveRatesAction = (data) => {
+export const setRateAction = (data) => {
 	return {
 		type: types.SET_RATE,
 		payload: {
@@ -11,21 +11,10 @@ export const saveRatesAction = (data) => {
 	};
 };
 
-export const setHistoricalRateAction = (data) => {
-	return {
-		type: types.SET_HISTORICAL_RATE,
-		payload: {
-			data,
-		},
-	};
-};
-
-export const getRate = (currency) => (dispatch) => {
-	api.getRate(currency).then((data) => dispatch(saveRatesAction(data)));
-};
-
-export const getHistoricalRate = (date, currency) => (dispatch) => {
-	api
-		.getHistoricalRate(date, currency)
-		.then((data) => dispatch(setHistoricalRateAction(data)));
+export const getCurrentRate = (currency, data) => (dispatch) => {
+	api.getRate(currency).then((resp) => {
+		dispatch(
+			setRateAction({ ...data, currentRate: resp.rates.PLN.toFixed(2) })
+		);
+	});
 };

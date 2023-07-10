@@ -2,7 +2,7 @@ import React from 'react';
 import { StyledInput } from './Input.styled';
 
 const Input = (props) => {
-	const { type = 'text', placeholder, name, onChange, value } = props;
+	const { type = 'text', placeholder, name, onChange, value, maxDate = null } = props;
 
 	return (
 		<StyledInput
@@ -10,7 +10,8 @@ const Input = (props) => {
 			type={type}
 			placeholder={placeholder}
 			onChange={onChange}
-			value={value}></StyledInput>
+			value={value}
+			max={maxDate}></StyledInput>
 	);
 };
 

@@ -1,5 +1,6 @@
 import currencies from './currencies';
 const currenciesArr = Object.keys(currencies);
+const today = new Date().toISOString().slice(0, 10);
 
 const formFields = [
 	{
@@ -24,6 +25,7 @@ const formFields = [
 		type: 'date',
 		required: true,
 		pattern: null,
+		maxDate: today,
 	},
 	{
 		name: 'price',

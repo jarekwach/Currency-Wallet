@@ -5,13 +5,18 @@ import FormField from './FormField/FormField';
 import formFields from '../data/formFields';
 import formValidation from '../formValidation';
 import { initialFormData } from '../data/initialFormData';
-import { useDispatch } from 'react-redux';
-import {  saveToLocalStorage } from '../modules/localStorage/localStorage.actions';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+	saveDataAction,
+	saveToLocalStorage,
+} from '../modules/localStorage/localStorage.actions';
 import ExchangeAPI from '../modules/exchange/exchange.api';
 
 const WalletForm = () => {
 	const [formData, setFormData] = useState(initialFormData);
 	const [formErrors, setFormErrors] = useState([]);
+	const { wallet } = useSelector((state) => state.localStorage);
+	const dispatch = useDispatch();
 
 	const handleInputChange = (name, value) => {
 		setFormData({ ...formData, [name]: value });
@@ -26,10 +31,9 @@ const WalletForm = () => {
 		const api = new ExchangeAPI();
 
 		if (currency && purchaseDate !== '') {
-			console.log('pobierz dane z API (kod zakomentowany)');
-			// api.getHistoricalRate(purchaseDate, currency).then((resp) => {
-			// 	setFormData({ ...formData, price: resp.rates.PLN.toFixed(2) });
-			// });
+			api.getHistoricalRate(purchaseDate, currency).then((resp) => {
+				setFormData({ ...formData, price: resp.rates.PLN.toFixed(2) });
+			});
 		}
 	};
 
@@ -40,8 +44,8 @@ const WalletForm = () => {
 		setFormErrors(errors);
 
 		if (errors.length === 0) {
-			console.log('zapisz dane w localStorage');
 			saveToLocalStorage('wallet', formData);
+			dispatch(saveDataAction([...wallet, formData]));
 			setFormData(initialFormData);
 		}
 	};
