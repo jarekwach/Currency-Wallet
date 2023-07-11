@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import reducers from './reducers';
-import Wallet from './components/Wallet';
+import WalletDashboard from './components/WalletDashboard';
 import WalletForm from './components/WalletForm';
 import AppContainer from './components/AppContainer';
 
@@ -23,7 +23,7 @@ function App() {
 			<GlobalStyle />
 			<AppContainer>
 				<WalletForm />
-				<Wallet />
+				<WalletDashboard />
 			</AppContainer>
 		</Provider>
 	);

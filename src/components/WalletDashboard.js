@@ -6,7 +6,7 @@ import { loadFromLocalStorage } from '../modules/localStorage/localStorage.actio
 import Table from './Table/Table';
 import tableColumns from '../data/tableColumns';
 
-const Wallet = () => {
+const WalletDashboard = () => {
 	const { wallet } = useSelector((state) => state.localStorage);
 	const { exchange } = useSelector((state) => state.exchange);
 	const dispatch = useDispatch();
@@ -41,4 +41,4 @@ const Wallet = () => {
 	);
 };
 
-export default Wallet;
+export default WalletDashboard;
