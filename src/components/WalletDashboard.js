@@ -26,7 +26,7 @@ const WalletDashboard = () => {
 			const { amount, price, currentRate } = item;
 
 			const currentValue = (amount * currentRate).toFixed(2);
-			const profit = (amount * price - currentValue).toFixed(2);
+			const profit = (currentValue - amount * price).toFixed(2);
 
 			return { ...item, currentValue, profit };
 		});
