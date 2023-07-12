@@ -17,7 +17,7 @@ const WalletDashboard = () => {
 
 	useEffect(() => {
 		if (wallet.length > 0) {
-			wallet.map((item) => dispatch(getCurrentRate(item.currency, item)));
+			wallet.map((item) => dispatch(getCurrentRate(item)));
 		}
 	}, [wallet.length]);
 

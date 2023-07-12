@@ -11,8 +11,8 @@ export const setRateAction = (data) => {
 	};
 };
 
-export const getCurrentRate = (currency, data) => (dispatch) => {
-	api.getRate(currency).then((resp) => {
+export const getCurrentRate = (data) => (dispatch) => {
+	api.getRate(data.currency).then((resp) => {
 		dispatch(
 			setRateAction({ ...data, currentRate: resp.rates.PLN.toFixed(2) })
 		);

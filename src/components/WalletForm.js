@@ -5,17 +5,14 @@ import FormField from './FormField/FormField';
 import formFields from '../data/formFields';
 import formValidation from '../formValidation';
 import { initialFormData } from '../data/initialFormData';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-	saveDataAction,
-	saveToLocalStorage,
-} from '../modules/localStorage/localStorage.actions';
+import { useDispatch } from 'react-redux';
+import { saveToLocalStorage } from '../modules/localStorage/localStorage.actions';
+import { getCurrentRate } from '../modules/exchange/exchange.actions';
 import ExchangeAPI from '../modules/exchange/exchange.api';
 
 const WalletForm = () => {
 	const [formData, setFormData] = useState(initialFormData);
 	const [formErrors, setFormErrors] = useState([]);
-	const { wallet } = useSelector((state) => state.localStorage);
 	const dispatch = useDispatch();
 
 	const handleInputChange = (name, value) => {
@@ -44,8 +41,8 @@ const WalletForm = () => {
 		setFormErrors(errors);
 
 		if (errors.length === 0) {
+			dispatch(getCurrentRate(formData));
 			saveToLocalStorage('wallet', formData);
-			dispatch(saveDataAction([...wallet, formData]));
 			setFormData(initialFormData);
 		}
 	};
