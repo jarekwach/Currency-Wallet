@@ -4,16 +4,28 @@ import TableHeader from '../TableHeader';
 import TableRow from '../TableRow/TableRow';
 import TableCell from '../TableCell';
 
-const Table = ({ columns, data }) => {
+const Table = ({ columns, data, baseCurrency }) => {
 	const renderColumns = columns.map((column) => (
 		<TableHeader key={column.name}>{column.label}</TableHeader>
 	));
 
 	const renderRows = data.map((row, i) => (
 		<TableRow key={i}>
-			{Object.entries(row).map(([key, value]) => (
-				<TableCell key={key}>{value}</TableCell>
-			))}
+			{Object.entries(row).map(([key, value]) => {
+				if (
+					key === 'price' ||
+					key === 'currentValue' ||
+					key === 'currentRate' ||
+					key === 'profit'
+				) {
+					return (
+						<TableCell key={key}>
+							{value} {baseCurrency}
+						</TableCell>
+					);
+				}
+				return <TableCell key={key}>{value}</TableCell>;
+			})}
 		</TableRow>
 	));
 
