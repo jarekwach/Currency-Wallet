@@ -8,6 +8,7 @@ import reducers from './reducers';
 import WalletDashboard from './components/WalletDashboard';
 import WalletForm from './components/WalletForm';
 import AppContainer from './components/AppContainer';
+import Header from './components/Header';
 
 import ResetStyle from './styled/Reset';
 import GlobalStyle from './styled/Global';
@@ -22,6 +23,7 @@ function App() {
 		<Provider store={store}>
 			<ResetStyle />
 			<GlobalStyle />
+			<Header />
 			<AppContainer>
 				<WalletForm />
 				<WalletDashboard />

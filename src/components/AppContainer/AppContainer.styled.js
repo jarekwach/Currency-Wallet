@@ -5,7 +5,6 @@ const StyledAppContainer = styled.section`
     height: 100vh;
 	margin: 0 auto;
     display: flex;
-    padding: 3rem;
     align-items: flex-start;
 `;
 

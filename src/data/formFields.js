@@ -16,7 +16,7 @@ const formFields = [
 		label: 'Amount',
 		type: 'number',
 		required: true,
-		placeholder: 'Amount',
+		placeholder: 'amount',
 		pattern: null,
 	},
 	{
@@ -32,7 +32,7 @@ const formFields = [
 		label: 'Price',
 		type: 'number',
 		required: true,
-		placeholder: 'Price',
+		placeholder: 'price',
 		pattern: null,
 	},
 ];

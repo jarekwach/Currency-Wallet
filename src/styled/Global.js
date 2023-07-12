@@ -3,7 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyle = createGlobalStyle`
     :root {
         font-size: 62.5%;
-        --color-primary: lime;
+        --color-primary: #3a3a3a;
         --shadow: 0 0 10px #333;
     }
 

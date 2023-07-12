@@ -16,7 +16,7 @@ const FormField = ({ fieldData, value, onChange, fieldError }) => {
 					name={name}
 					value={value}
 					onChange={(e) => onChange(e.target.value)}>
-					<option value=''>Select an option</option>
+					<option value=''>select an option</option>
 					{options.map((option) => (
 						<option
 							key={option}
