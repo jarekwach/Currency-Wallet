@@ -8,6 +8,7 @@ const reducer = (state = initState, action) => {
 	switch (action.type) {
 		case types.SET_RATE:
 			const { data } = action.payload;
+			
 			return {
 				...state,
 				exchange: [...state.exchange, data],

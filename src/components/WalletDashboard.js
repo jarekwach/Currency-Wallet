@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCurrentRate } from '../modules/exchange/exchange.actions';
 import { loadFromLocalStorage } from '../modules/localStorage/localStorage.actions';
-
 import Table from './Table/Table';
 import tableColumns from '../data/tableColumns';
 
@@ -21,7 +20,7 @@ const WalletDashboard = () => {
 		}
 	}, [wallet.length]);
 
-	const walletData = () =>
+	const prepareWalletData = () =>
 		exchange.map((item) => {
 			const { amount, price, currentRate } = item;
 
@@ -35,7 +34,7 @@ const WalletDashboard = () => {
 		<>
 			<Table
 				columns={tableColumns}
-				data={walletData().length === 0 ? wallet : walletData()}
+				data={prepareWalletData().length === 0 ? wallet : prepareWalletData()}
 			/>
 		</>
 	);

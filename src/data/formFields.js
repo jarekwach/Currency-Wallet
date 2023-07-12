@@ -33,7 +33,7 @@ const formFields = [
 		type: 'number',
 		required: true,
 		placeholder: 'Price',
-		pattern: [null],
+		pattern: null,
 	},
 ];
 

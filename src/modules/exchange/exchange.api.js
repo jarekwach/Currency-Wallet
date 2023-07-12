@@ -8,13 +8,25 @@ class ExchangeAPI {
 		headers: { apikey: this.apiKey },
 	};
 
+	// getRate(currency) {
+	// 	return fetch(
+	// 		`${this.apiUrl}/latest?symbols=PLN&base=${currency}`,
+	// 		this.options
+	// 	)
+	// 		.then(this.handleErrors)
+	// 		.then((resp) => resp.json());
+	// }
+
+	// fake API
 	getRate(currency) {
-		return fetch(
-			`${this.apiUrl}/latest?symbols=PLN&base=${currency}`,
-			this.options
-		)
-			.then(this.handleErrors)
-			.then((resp) => resp.json());
+		return new Promise(function (resolve) {
+			resolve({
+				base: 'EUR',
+				rates: {
+					PLN: 4.44,
+				},
+			});
+		});
 	}
 
 	getHistoricalRate(date, currency) {

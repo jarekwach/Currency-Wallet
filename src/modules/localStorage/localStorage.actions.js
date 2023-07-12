@@ -6,7 +6,7 @@ export const saveDataAction = (data) => {
 	return {
 		type: types.SAVE_DATA,
 		payload: {
-			data: data,
+			data,
 		},
 	};
 };

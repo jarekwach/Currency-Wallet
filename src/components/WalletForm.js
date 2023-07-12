@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import Form from './Form';
-import Button from './Button';
-import FormField from './FormField/FormField';
-import formFields from '../data/formFields';
-import formValidation from '../formValidation';
-import { initialFormData } from '../data/initialFormData';
 import { useDispatch } from 'react-redux';
 import { saveToLocalStorage } from '../modules/localStorage/localStorage.actions';
 import { getCurrentRate } from '../modules/exchange/exchange.actions';
 import ExchangeAPI from '../modules/exchange/exchange.api';
+import Form from './Form';
+import FormField from './FormField/FormField';
+import Button from './Button';
+import formFields from '../data/formFields';
+import { initialFormData } from '../data/initialFormData';
+import formValidation from '../formValidation';
 
 const WalletForm = () => {
 	const [formData, setFormData] = useState(initialFormData);

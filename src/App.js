@@ -1,7 +1,8 @@
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
+import { applyMiddleware } from 'redux';
+import { legacy_createStore as createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import thunk from 'redux-thunk';
 
 import reducers from './reducers';
 import WalletDashboard from './components/WalletDashboard';
