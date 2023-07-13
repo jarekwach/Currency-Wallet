@@ -8,7 +8,7 @@ import FormField from './FormField/FormField';
 import Button from './Button';
 import formFields from '../data/formFields';
 import { initialFormData } from '../data/initialFormData';
-import formValidation from '../formValidation';
+import formValidation from '../helpers/formValidation';
 
 const WalletForm = () => {
 	const [formData, setFormData] = useState(initialFormData);

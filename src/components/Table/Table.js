@@ -3,6 +3,7 @@ import { StyledTable } from './Table.styled';
 import TableHeader from '../TableHeader';
 import TableRow from '../TableRow/TableRow';
 import TableCell from '../TableCell';
+import { getCellWithCurrency } from '../../helpers/helpers';
 
 const Table = ({ columns, data, baseCurrency }) => {
 	const renderColumns = columns.map((column) => (
@@ -12,12 +13,7 @@ const Table = ({ columns, data, baseCurrency }) => {
 	const renderRows = data.map((row, i) => (
 		<TableRow key={i}>
 			{Object.entries(row).map(([key, value]) => {
-				if (
-					key === 'price' ||
-					key === 'currentValue' ||
-					key === 'currentRate' ||
-					key === 'profit'
-				) {
+				if (getCellWithCurrency(key)) {
 					return (
 						<TableCell key={key}>
 							{value} {baseCurrency}
