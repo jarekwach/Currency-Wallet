@@ -24,9 +24,6 @@ Currency wallet is an application that calculates the potential profit or loss f
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 
-![webpack](https://img.shields.io/badge/Webpack-8DD6F9?style=for-the-badge&logo=Webpack&logoColor=white)
-![Babel](https://img.shields.io/badge/Babel-F9DC3E?style=for-the-badge&logo=babel&logoColor=white)
-![ESLint](https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 ![NPM](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white)
 
@@ -46,6 +43,18 @@ To run it locally you should install all dependencies:
 ```
 npm i
 ```
+
+The API key is needed for the proper operation of the application. You need to generate it from the [APILayer](https://apilayer.com/marketplace/exchangerates_data-api) website.
+
+- Enter your API key in the `.env.example` file
+
+```
+REACT_APP_API_KEY=yourAPIkey
+```
+
+- Rename `.env.example` to `.env`
+
+&nbsp;
 
 To run webpack and create a localhost port you should type:
 
