@@ -2,9 +2,9 @@
 
 # Currency Wallet
 
-See the live version of [Currency Wallet](https://jarekwach.github.io/Currency-Wallet/).
-
 Currency wallet is an application that calculates the potential profit or loss from your currencies converted into PLN. Application data is saved in localStorage, and current exchange rates are downloaded using the [API](https://apilayer.com/marketplace/exchangerates_data-api).
+
+See the live version of [Currency Wallet](https://jarekwach.github.io/Currency-Wallet/) (if currency prices are not displayed, it is possible that the number of API requests has exceeded the limit).
 
 **Main features**:
 
