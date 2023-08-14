@@ -8,9 +8,10 @@ Currency wallet is an application that calculates the potential profit or loss f
 
 **Main features**:
 
--
--
--
+- The purchase price of a given currency from the selected day is completed automatically using the API (the possibility of modifying the price)
+- Calculation of profit or loss (current purchase price downloaded from the API)
+- Application data is saved in localStorage (no loss of entries after refreshing or closing the browser)
+- Wallet form validation
 
 &nbsp;
 
@@ -33,9 +34,7 @@ Currency wallet is an application that calculates the potential profit or loss f
 
 ## Future plans
 
--
--
--
+- Deleting wallet items
 
 &nbsp;
 
