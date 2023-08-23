@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/Currency-Wallet/static/js/main.f122a9eb.js",
+    "main.js": "/Currency-Wallet/static/js/main.ff1daebd.js",
     "index.html": "/Currency-Wallet/index.html",
-    "main.f122a9eb.js.map": "/Currency-Wallet/static/js/main.f122a9eb.js.map"
+    "main.ff1daebd.js.map": "/Currency-Wallet/static/js/main.ff1daebd.js.map"
   },
   "entrypoints": [
-    "static/js/main.f122a9eb.js"
+    "static/js/main.ff1daebd.js"
   ]
 }
